@@ -40,8 +40,8 @@ pipeline {
         stage('Upload to S3') {
             steps {
                 sh '''
-                aws s3 cp webiste-test.zip s3://webiste-test-artifacts-prod/webiste-test.zip
-                aws s3 cp webiste-test.zip.sha256 s3://webiste-test-artifacts-prod/webiste-test.zip.sha256
+                aws s3 cp webiste-test.zip s3://webiste-test-artifacts-jenkins/webiste-test.zip
+                aws s3 cp webiste-test.zip.sha256 s3://webiste-test-artifacts-jenkins/webiste-test.zip.sha256
                 '''
             }
         }
