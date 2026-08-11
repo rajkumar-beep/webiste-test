@@ -1,0 +1,478 @@
+```css
+/* ================================
+   DEVOPS / CI-CD DASHBOARD STYLE
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Courier New", Consolas, monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080b0f;
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+    background: #0d1117;
+    border-bottom: 1px solid #21262d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo {
+    color: #39ff88;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo::before {
+    content: "> ";
+    color: #58a6ff;
+}
+
+nav a {
+    color: #8b949e;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #39ff88;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 82vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at top, #13261d 0%, transparent 40%),
+        #080b0f;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: #f0f6fc;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #39ff88;
+}
+
+.hero p {
+    max-width: 750px;
+    color: #8b949e;
+    font-size: 17px;
+}
+
+.hero button {
+    margin-top: 35px;
+    padding: 13px 28px;
+    background: transparent;
+    border: 1px solid #39ff88;
+    color: #39ff88;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: #39ff88;
+    color: #080b0f;
+    box-shadow: 0 0 25px rgba(57, 255, 136, 0.3);
+}
+
+/* ================================
+   TERMINAL BOX
+================================ */
+
+.terminal {
+    width: 90%;
+    max-width: 850px;
+    margin: 45px auto 0;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #161b22;
+    padding: 10px 15px;
+    border-bottom: 1px solid #30363d;
+    color: #8b949e;
+    font-size: 13px;
+}
+
+.terminal-body {
+    padding: 20px;
+    color: #39ff88;
+    font-size: 14px;
+}
+
+.terminal-body span {
+    color: #58a6ff;
+}
+
+/* ================================
+   SECTIONS
+================================ */
+
+.section {
+    padding: 90px 20px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #f0f6fc;
+    margin-bottom: 10px;
+}
+
+.section h2::before {
+    content: "$ ";
+    color: #39ff88;
+}
+
+.section > p {
+    text-align: center;
+    color: #8b949e;
+    margin-bottom: 50px;
+}
+
+/* ================================
+   CI/CD PIPELINE
+================================ */
+
+.pipeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-top: 45px;
+    flex-wrap: wrap;
+}
+
+.stage {
+    width: 180px;
+    padding: 22px 15px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    text-align: center;
+    position: relative;
+}
+
+.stage:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.stage:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.stage h3 {
+    color: #f0f6fc;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.stage p {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.stage .status {
+    margin: 10px auto 0;
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.success {
+    color: #39ff88;
+    border: 1px solid #238636;
+    background: rgba(35, 134, 54, 0.12);
+}
+
+.failed {
+    color: #ff7b72;
+    border: 1px solid #f85149;
+    background: rgba(248, 81, 73, 0.1);
+}
+
+.running {
+    color: #58a6ff;
+    border: 1px solid #1f6feb;
+    background: rgba(31, 111, 235, 0.1);
+}
+
+.pipeline-arrow {
+    color: #39ff88;
+    font-size: 22px;
+    padding: 0 10px;
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.card {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 28px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: #39ff88;
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #58a6ff;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.card p {
+    color: #8b949e;
+    font-size: 14px;
+}
+
+/* ================================
+   STATUS CARDS
+================================ */
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.status-card {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.status-card .label {
+    color: #8b949e;
+    font-size: 12px;
+}
+
+.status-card .value {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #f0f6fc;
+}
+
+.status-card.online .value {
+    color: #39ff88;
+}
+
+.status-card.warning .value {
+    color: #d29922;
+}
+
+.status-card.error .value {
+    color: #ff7b72;
+}
+
+/* ================================
+   DEPLOYMENT LOG
+================================ */
+
+.logs {
+    background: #05070a;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 40px;
+    overflow-x: auto;
+}
+
+.log-line {
+    font-size: 13px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+.log-time {
+    color: #6e7681;
+}
+
+.log-success {
+    color: #39ff88;
+}
+
+.log-info {
+    color: #58a6ff;
+}
+
+.log-error {
+    color: #ff7b72;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    background: #238636;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #2ea043;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #2ea043;
+    box-shadow: 0 0 18px rgba(46, 160, 67, 0.3);
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    background: #05070a;
+    border-top: 1px solid #21262d;
+    padding: 35px 20px;
+    text-align: center;
+    color: #6e7681;
+    font-size: 13px;
+}
+
+footer span {
+    color: #39ff88;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pipeline-arrow {
+        display: none;
+    }
+
+    .stage {
+        margin: 8px;
+        border-radius: 8px !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px 8px;
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 60px 15px;
+    }
+
+    .section h2 {
+        font-size: 25px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .terminal {
+        width: 100%;
+    }
+
+    .terminal-body {
+        font-size: 12px;
+    }
+}
+```

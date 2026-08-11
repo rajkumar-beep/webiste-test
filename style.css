@@ -1,13 +1,12 @@
-```css
-/* ================================
-   DEVOPS / CI-CD DASHBOARD STYLE
-================================ */
+/* =========================================================
+   CI/CD CONTROL PANEL
+   Clean DevOps Dashboard Design
+========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier New", Consolas, monospace;
 }
 
 html {
@@ -15,405 +14,684 @@ html {
 }
 
 body {
-    background: #080b0f;
-    color: #d1d5db;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
     line-height: 1.6;
 }
 
-/* ================================
+/* =========================================================
    HEADER
-================================ */
+========================================================= */
 
 header {
-    background: #0d1117;
-    border-bottom: 1px solid #21262d;
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e9f0;
 }
 
 .container {
     width: 92%;
     max-width: 1250px;
     margin: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
+
+    padding: 17px 0;
 }
 
 .logo {
-    color: #39ff88;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #172033;
 }
 
 .logo::before {
-    content: "> ";
-    color: #58a6ff;
+    content: "●";
+    margin-right: 9px;
+    color: #2563eb;
 }
 
 nav a {
-    color: #8b949e;
+    color: #667085;
     text-decoration: none;
     margin-left: 28px;
     font-size: 14px;
-    transition: 0.3s;
+    font-weight: 600;
+
+    transition: 0.25s;
 }
 
 nav a:hover {
-    color: #39ff88;
+    color: #2563eb;
 }
 
-/* ================================
+/* =========================================================
    HERO
-================================ */
+========================================================= */
 
 .hero {
-    min-height: 82vh;
-    padding: 80px 20px;
+    min-height: 78vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
 
+    padding: 80px 20px;
+
     background:
-        radial-gradient(circle at top, #13261d 0%, transparent 40%),
-        #080b0f;
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f4f7fb 100%
+        );
 }
 
 .hero h1 {
+    max-width: 900px;
+
     font-size: 4rem;
-    color: #f0f6fc;
-    margin-bottom: 15px;
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    color: #101828;
+
+    margin-bottom: 22px;
 }
 
 .hero h1 span {
-    color: #39ff88;
+    color: #2563eb;
 }
 
 .hero p {
-    max-width: 750px;
-    color: #8b949e;
+    max-width: 720px;
+
+    color: #667085;
+
     font-size: 17px;
 }
 
 .hero button {
-    margin-top: 35px;
+    margin-top: 32px;
+
     padding: 13px 28px;
-    background: transparent;
-    border: 1px solid #39ff88;
-    color: #39ff88;
-    border-radius: 6px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
     font-size: 15px;
+    font-weight: 700;
+
     cursor: pointer;
-    transition: 0.3s;
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+
+    transition: 0.25s;
 }
 
 .hero button:hover {
-    background: #39ff88;
-    color: #080b0f;
-    box-shadow: 0 0 25px rgba(57, 255, 136, 0.3);
+    transform: translateY(-2px);
+    background: #1d4ed8;
 }
 
-/* ================================
-   TERMINAL BOX
-================================ */
+/* =========================================================
+   DASHBOARD PREVIEW
+========================================================= */
 
-.terminal {
-    width: 90%;
-    max-width: 850px;
-    margin: 45px auto 0;
-    background: #0d1117;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    text-align: left;
+.dashboard {
+    width: 92%;
+    max-width: 1100px;
+
+    margin: -30px auto 80px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 50px rgba(16, 24, 40, 0.08);
+
     overflow: hidden;
 }
 
-.terminal-header {
-    background: #161b22;
-    padding: 10px 15px;
-    border-bottom: 1px solid #30363d;
-    color: #8b949e;
+.dashboard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border-bottom: 1px solid #edf0f5;
+}
+
+.dashboard-title {
+    font-weight: 700;
+    color: #172033;
+}
+
+.dashboard-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #15803d;
     font-size: 13px;
+    font-weight: 700;
 }
 
-.terminal-body {
+.dashboard-status::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+/* =========================================================
+   STATUS GRID
+========================================================= */
+
+.status-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+    padding: 22px;
+}
+
+.status-card {
     padding: 20px;
-    color: #39ff88;
-    font-size: 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e8edf3;
+
+    border-radius: 10px;
 }
 
-.terminal-body span {
-    color: #58a6ff;
+.status-card .label {
+    color: #667085;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* ================================
+.status-card .value {
+    margin-top: 5px;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #172033;
+}
+
+.status-card .small {
+    font-size: 12px;
+    color: #98a2b3;
+}
+
+.status-card.success .value {
+    color: #16a34a;
+}
+
+.status-card.warning .value {
+    color: #d97706;
+}
+
+.status-card.error .value {
+    color: #dc2626;
+}
+
+.status-card.info .value {
+    color: #2563eb;
+}
+
+/* =========================================================
    SECTIONS
-================================ */
+========================================================= */
 
 .section {
-    padding: 90px 20px;
     max-width: 1250px;
+
     margin: auto;
+
+    padding: 90px 20px;
 }
 
 .section h2 {
     text-align: center;
-    font-size: 32px;
-    color: #f0f6fc;
-    margin-bottom: 10px;
-}
 
-.section h2::before {
-    content: "$ ";
-    color: #39ff88;
+    color: #101828;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
 }
 
 .section > p {
     text-align: center;
-    color: #8b949e;
-    margin-bottom: 50px;
+
+    max-width: 650px;
+
+    margin: 0 auto 45px;
+
+    color: #667085;
 }
 
-/* ================================
+/* =========================================================
    CI/CD PIPELINE
-================================ */
+========================================================= */
+
+.pipeline-wrapper {
+    background: #ffffff;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 14px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 12px 35px rgba(16, 24, 40, 0.06);
+}
 
 .pipeline {
     display: flex;
-    justify-content: center;
+
     align-items: center;
-    gap: 0;
-    margin-top: 45px;
+    justify-content: center;
+
     flex-wrap: wrap;
 }
 
 .stage {
-    width: 180px;
-    padding: 22px 15px;
-    background: #0d1117;
-    border: 1px solid #30363d;
+    min-width: 145px;
+
+    padding: 20px 15px;
+
     text-align: center;
-    position: relative;
+
+    background: #f8fafc;
+
+    border: 1px solid #dfe5ec;
+
+    border-radius: 10px;
+
+    transition: 0.25s;
 }
 
-.stage:first-child {
-    border-radius: 8px 0 0 8px;
+.stage:hover {
+    border-color: #2563eb;
+
+    background: #f1f6ff;
+
+    transform: translateY(-3px);
 }
 
-.stage:last-child {
-    border-radius: 0 8px 8px 0;
+.stage-icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e8f0ff;
+
+    color: #2563eb;
+
+    font-weight: 800;
 }
 
 .stage h3 {
-    color: #f0f6fc;
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: 14px;
+
+    color: #172033;
+
+    margin-bottom: 5px;
 }
 
 .stage p {
-    font-size: 12px;
-    color: #8b949e;
+    font-size: 11px;
+
+    color: #98a2b3;
 }
 
-.stage .status {
-    margin: 10px auto 0;
+.status {
     display: inline-block;
+
+    margin-top: 10px;
+
     padding: 4px 9px;
+
     border-radius: 20px;
-    font-size: 11px;
+
+    font-size: 10px;
+
+    font-weight: 700;
 }
 
 .success {
-    color: #39ff88;
-    border: 1px solid #238636;
-    background: rgba(35, 134, 54, 0.12);
+    color: #15803d;
+
+    background: #dcfce7;
+
+    border: 1px solid #bbf7d0;
 }
 
 .failed {
-    color: #ff7b72;
-    border: 1px solid #f85149;
-    background: rgba(248, 81, 73, 0.1);
+    color: #b91c1c;
+
+    background: #fee2e2;
+
+    border: 1px solid #fecaca;
 }
 
 .running {
-    color: #58a6ff;
-    border: 1px solid #1f6feb;
-    background: rgba(31, 111, 235, 0.1);
+    color: #1d4ed8;
+
+    background: #dbeafe;
+
+    border: 1px solid #bfdbfe;
 }
 
 .pipeline-arrow {
-    color: #39ff88;
+    padding: 0 12px;
+
+    color: #98a2b3;
+
     font-size: 22px;
-    padding: 0 10px;
 }
 
-/* ================================
+/* =========================================================
    CARDS
-================================ */
+========================================================= */
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 22px;
+
     margin-top: 45px;
 }
 
 .card {
-    background: #0d1117;
-    border: 1px solid #21262d;
-    border-radius: 8px;
+    background: #ffffff;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 12px;
+
     padding: 28px;
-    transition: 0.3s;
+
+    transition: 0.25s;
 }
 
 .card:hover {
-    border-color: #39ff88;
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+
+    border-color: #b8cdf7;
+
+    box-shadow:
+        0 12px 30px rgba(16, 24, 40, 0.07);
 }
 
 .card h3 {
-    color: #58a6ff;
-    margin-bottom: 12px;
-    font-size: 18px;
+    color: #172033;
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
 }
 
 .card p {
-    color: #8b949e;
+    color: #667085;
+
     font-size: 14px;
 }
 
-/* ================================
-   STATUS CARDS
-================================ */
+/* =========================================================
+   DEPLOYMENT TABLE
+========================================================= */
 
-.status-grid {
+.deployments {
+    margin-top: 45px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.deployment-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+
+    grid-template-columns:
+        1.4fr
+        1fr
+        1fr
+        1fr;
+
+    align-items: center;
+
+    padding: 17px 22px;
+
+    border-bottom: 1px solid #edf0f5;
 }
 
-.status-card {
-    background: #0d1117;
-    border: 1px solid #21262d;
-    padding: 22px;
-    border-radius: 8px;
+.deployment-row:last-child {
+    border-bottom: none;
 }
 
-.status-card .label {
-    color: #8b949e;
+.deployment-row.header {
+    background: #f8fafc;
+
+    color: #667085;
+
     font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
 }
 
-.status-card .value {
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 5px;
-    color: #f0f6fc;
+.deployment-row span {
+    font-size: 13px;
 }
 
-.status-card.online .value {
-    color: #39ff88;
+.commit {
+    color: #2563eb;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-weight: 600;
 }
 
-.status-card.warning .value {
-    color: #d29922;
+.environment {
+    color: #475467;
 }
 
-.status-card.error .value {
-    color: #ff7b72;
+.time {
+    color: #98a2b3;
 }
 
-/* ================================
-   DEPLOYMENT LOG
-================================ */
+/* =========================================================
+   LOG PANEL
+========================================================= */
 
 .logs {
-    background: #05070a;
-    border: 1px solid #21262d;
-    border-radius: 8px;
-    padding: 25px;
     margin-top: 40px;
+
+    background: #111827;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
     overflow-x: auto;
 }
 
+.logs-title {
+    color: #ffffff;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
 .log-line {
-    font-size: 13px;
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
     margin-bottom: 8px;
+
     white-space: nowrap;
 }
 
 .log-time {
-    color: #6e7681;
+    color: #64748b;
+
+    margin-right: 10px;
 }
 
 .log-success {
-    color: #39ff88;
+    color: #4ade80;
 }
 
 .log-info {
-    color: #58a6ff;
+    color: #60a5fa;
+}
+
+.log-warning {
+    color: #fbbf24;
 }
 
 .log-error {
-    color: #ff7b72;
+    color: #f87171;
 }
 
-/* ================================
+/* =========================================================
    BUTTONS
-================================ */
+========================================================= */
 
 .btn {
     display: inline-block;
+
     margin-top: 20px;
+
     padding: 10px 22px;
-    background: #238636;
+
+    background: #2563eb;
+
     color: #ffffff;
+
     text-decoration: none;
-    border-radius: 6px;
-    border: 1px solid #2ea043;
-    transition: 0.3s;
-    font-size: 14px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
 }
 
 .btn:hover {
-    background: #2ea043;
-    box-shadow: 0 0 18px rgba(46, 160, 67, 0.3);
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
 }
 
-/* ================================
+/* Secondary Button */
+
+.btn-secondary {
+    background: #ffffff;
+
+    color: #2563eb;
+
+    border: 1px solid #bfd2f5;
+}
+
+.btn-secondary:hover {
+    background: #eff6ff;
+}
+
+/* =========================================================
    FOOTER
-================================ */
+========================================================= */
 
 footer {
-    background: #05070a;
-    border-top: 1px solid #21262d;
-    padding: 35px 20px;
+    background: #101828;
+
+    color: #98a2b3;
+
     text-align: center;
-    color: #6e7681;
+
+    padding: 35px 20px;
+
+    margin-top: 40px;
+
     font-size: 13px;
 }
 
 footer span {
-    color: #39ff88;
+    color: #60a5fa;
 }
 
-/* ================================
+/* =========================================================
    RESPONSIVE
-================================ */
+========================================================= */
 
-@media (max-width: 900px) {
-
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 950px) {
 
     .status-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .pipeline-arrow {
@@ -421,26 +699,39 @@ footer span {
     }
 
     .stage {
-        margin: 8px;
-        border-radius: 8px !important;
+        margin: 7px;
+    }
+
+    .deployment-row {
+        grid-template-columns:
+            1fr 1fr;
+        gap: 8px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .container {
         flex-direction: column;
-        gap: 15px;
+
+        gap: 14px;
+    }
+
+    nav {
+        text-align: center;
     }
 
     nav a {
-        margin: 5px 8px;
-        font-size: 13px;
+        margin: 0 7px;
+
+        font-size: 12px;
     }
 
     .hero {
-        min-height: 75vh;
-        padding: 60px 15px;
+        min-height: 70vh;
+
+        padding:
+            60px 15px;
     }
 
     .hero h1 {
@@ -451,28 +742,52 @@ footer span {
         font-size: 14px;
     }
 
-    .section {
-        padding: 60px 15px;
-    }
-
-    .section h2 {
-        font-size: 25px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
+    .dashboard {
+        width: 94%;
     }
 
     .status-grid {
         grid-template-columns: 1fr;
     }
 
-    .terminal {
-        width: 100%;
+    .cards {
+        grid-template-columns: 1fr;
     }
 
-    .terminal-body {
-        font-size: 12px;
+    .section {
+        padding:
+            60px 15px;
+    }
+
+    .section h2 {
+        font-size: 26px;
+    }
+
+    .pipeline-wrapper {
+        padding: 20px 10px;
+    }
+
+    .stage {
+        width: 100%;
+
+        max-width: 220px;
+    }
+
+    .deployment-row {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 4px;
+    }
+
+    .deployment-row.header {
+        display: none;
+    }
+
+    .logs {
+        padding: 18px;
     }
 }
-```
